@@ -10,10 +10,10 @@ public class delete_DeleteSingleEmployeeInformation {
 	JsonPath jsonresnponse;
 	JsonObject json = new JsonObject();
 	
-	public void deleteExistingEmployee() {
+	public void deleteExistingEmployee(String id) {
 	
 		RestAssured.baseURI="http://dummy.restapiexample.com";
-		RestAssured.basePath= "";
+		RestAssured.basePath= "/api/v1/delete/"+id;
 		
 	jsonresnponse = new JsonPath(
 			RestAssured

@@ -1,5 +1,7 @@
 package TestProjects.EmployeeAPI_Test_Project;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.Test;
 
 public class TestCases {
@@ -18,17 +20,24 @@ public class TestCases {
 	
 	@Test
 	public void createEmployee_Positive() {
-		createEmployee.CreateNewEmployee("Mehedi Zam", "12344", "32");
+		createEmployee.CreateNewEmployee("Mehedi Zam3", "12344", "32");
+		assertEquals(createEmployee.getEmployeeName(), "Mehedi Zam3");
+		System.out.println("the employee name is: "+createEmployee.getEmployeeName());
+	}
+	
+	@Test
+	public void getEmployeeDetail() {
+		viewEmployeeDetail.viewingEmployeeDetail("");
 	}
 	
 	@Test
 	public void updateEmployee() {
-		employeeUpdate.updateExistingEmployee();
+		employeeUpdate.updateExistingEmployee("", "", "", "");
 	}
 	
 	@Test
 	public void deleteEmployee() {
-		deleteEmployeeByID.deleteExistingEmployee();
+		deleteEmployeeByID.deleteExistingEmployee("");
 	}
 	
 	

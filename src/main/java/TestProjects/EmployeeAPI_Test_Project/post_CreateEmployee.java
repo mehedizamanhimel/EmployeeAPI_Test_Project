@@ -6,11 +6,15 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 public class post_CreateEmployee {
+	
+	
+	JsonObject json = new JsonObject();
+	JsonPath jsonResponse;
 
 	public void CreateNewEmployee(String name, String salary, String age) {
 		
-		JsonObject json = new JsonObject();
-		JsonPath jsonResponse;
+		
+		
 		
 		json.addProperty("name", name);
 		json.addProperty("salary", salary);
@@ -29,6 +33,18 @@ public class post_CreateEmployee {
 				.asString());
 				
 				jsonResponse.prettyPrint();
+				
+			
+		
+	}
+	
+	public String getEmployeeID() {
+		return jsonResponse.getString("id");
+		
+	}
+	
+	public String getEmployeeName() {
+		return jsonResponse.getString("name");
 		
 	}
 
