@@ -21,15 +21,13 @@ public class delete_DeleteSingleEmployeeInformation {
 			.when()
 			.delete()
 			.asString());
-			
-	
+				
 	jsonresnponse.prettyPrint();
-			
-			
-			
-			
-			
 		
+	}
+	
+	public String returnResponse() {
+		return jsonresnponse.getString("");
 	}
 	
 

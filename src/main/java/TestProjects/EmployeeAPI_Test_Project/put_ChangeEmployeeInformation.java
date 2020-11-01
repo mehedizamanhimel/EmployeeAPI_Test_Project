@@ -11,10 +11,12 @@ public class put_ChangeEmployeeInformation {
 	JsonPath jsonresnponse;
 	public void updateExistingEmployee(String name, String salary, String age, String id) {
 		
+		//this section to send the json body data with individual value.
 		json.addProperty("name", name);
 		json.addProperty("salary", salary);
 		json.addProperty("age", age);
 
+		
 		RestAssured.baseURI="http://dummy.restapiexample.com";
 		RestAssured.basePath= "/api/v1/update/"+id;
 		
@@ -26,8 +28,13 @@ public class put_ChangeEmployeeInformation {
 			.asString());
 			
 	
-	jsonresnponse.prettyPrint();// TODO Auto-generated method stub
+	jsonresnponse.prettyPrint();
 		
+	}
+	
+	//This method to return the reponse
+	public String returnResponse() {
+		return jsonresnponse.getString("");
 	}
 
 }

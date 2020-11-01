@@ -11,26 +11,27 @@ public class get_ViewEmployeeList {
 		
 	}
 
-	JsonObject json = new JsonObject();
-	JsonPath jsonResponse;
-	
+	JsonPath jsonresnponse;
 	
 	public void getEmployeeList() {
 	
 		RestAssured.baseURI = "http://dummy.restapiexample.com";
 		RestAssured.basePath = "/api/v1/employees";
 		
-		jsonResponse = new JsonPath(
-				RestAssured.given().when().get().asString());
-				
-				
-		jsonResponse.prettyPrint();
-				
-				
-				
-				
-				
-				
+		jsonresnponse = new JsonPath(
+				RestAssured
+				.given()
+				.when()
+				.get()
+				.asString());
+		
+		jsonresnponse.prettyPrint();
+							
+	}
+	
+	//From this method, user will get the data for a particular employee from a list.
+	public String returnResponse(int i) {
+		return jsonresnponse.getString("data.get[" +i+"].data");
 	}
 
 }

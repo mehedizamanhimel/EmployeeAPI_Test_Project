@@ -1,5 +1,6 @@
 package TestProjects.EmployeeAPI_Test_Project;
 
+
 import com.google.gson.JsonObject;
 
 import io.restassured.RestAssured;
@@ -9,18 +10,22 @@ public class get_ViewSingleEmployeeDetail {
 
 	
 
+
 	JsonObject json = new JsonObject();
 	JsonPath jsonresponse;
 	
 	
-	public void viewingEmployeeDetail(String id) {
+	public void viewingEmployeeDetail(int emp_ID) {
 		
 		RestAssured.baseURI="http://dummy.restapiexample.com";
-		RestAssured.basePath="/employee/"+id;
+		RestAssured.basePath="/api/v1/employee/"+emp_ID;
 		
 		jsonresponse=new JsonPath(
 				RestAssured
 				.given()
+			//	.contentType("application/json")
+				.log()
+				.all()
 				.when()
 				.get()
 				.asString());
@@ -30,5 +35,11 @@ public class get_ViewSingleEmployeeDetail {
 				
 		
 	}
+	
+	public String getData() {
+		return jsonresponse.getString("");
+	}
+
+	
 
 }

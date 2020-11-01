@@ -12,10 +12,7 @@ public class post_CreateEmployee {
 	JsonPath jsonResponse;
 
 	public void CreateNewEmployee(String name, String salary, String age) {
-		
-		
-		
-		
+					
 		json.addProperty("name", name);
 		json.addProperty("salary", salary);
 		json.addProperty("age", age);
@@ -27,25 +24,27 @@ public class post_CreateEmployee {
 				RestAssured
 				.given()
 				.contentType("application/json")
-				.body(json.toString()).log().all()
+				//.body(json.toString())
+				.log()
+				.all()
 				.when()
 				.post()
 				.asString());
 				
 				jsonResponse.prettyPrint();
-				
-			
-		
+					
 	}
 	
 	public String getEmployeeID() {
-		return jsonResponse.getString("id");
-		
+		return jsonResponse.getString("id") ;		
 	}
 	
 	public String getEmployeeName() {
-		return jsonResponse.getString("name");
-		
+		return jsonResponse.getString("data.name");	
+	}
+	
+	public String getStatus() {
+		return jsonResponse.getString("status");
 	}
 
 }
