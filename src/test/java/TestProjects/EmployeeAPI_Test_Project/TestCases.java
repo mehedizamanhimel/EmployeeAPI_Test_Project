@@ -21,18 +21,17 @@ public class TestCases {
 	@Test
 	public void getEmployee_Positive() {
 		viewEmployeeList.getEmployeeList();
-		
-		Assert.assertEquals("" , "");
+		System.out.println(viewEmployeeList.returnEmployeeID(1));
+		Assert.assertEquals(viewEmployeeList.returnEmployeeID(1) , "2");
 	}
 	
 	@Test
 	public void createEmployee_Positive() {
 		createEmployee.CreateNewEmployee(EMP_Name, "12344", "32");
-		assertEquals(createEmployee.getEmployeeName(), EMP_Name);
-		assertEquals(createEmployee.getStatus(), "success");
 		System.out.println("the employee name is: "+createEmployee.getEmployeeName());
-		
-		Assert.assertEquals("" , "");
+		Assert.assertEquals(createEmployee.getStatus(), "success");
+		Assert.assertEquals(createEmployee.getMessage(), "Successfully! Record has been added.");
+	
 	}
 	
 	@Test
@@ -41,7 +40,7 @@ public class TestCases {
 		int emp_ID = Integer.parseInt(createEmployee.getEmployeeID());
 		viewEmployeeDetail.viewingEmployeeDetail(emp_ID);
 		
-		Assert.assertEquals("" , "");
+		Assert.assertEquals(viewEmployeeDetail.getStatus()  , "success");
 	}
 	
 	@Test

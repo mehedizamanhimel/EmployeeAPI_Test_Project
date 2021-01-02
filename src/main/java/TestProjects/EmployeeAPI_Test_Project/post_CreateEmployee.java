@@ -24,19 +24,20 @@ public class post_CreateEmployee {
 				RestAssured
 				.given()
 				.contentType("application/json")
-				//.body(json.toString())
+				.body(json.toString())
 				.log()
 				.all()
 				.when()
 				.post()
 				.asString());
+	
 				
 				jsonResponse.prettyPrint();
 					
 	}
 	
 	public String getEmployeeID() {
-		return jsonResponse.getString("id") ;		
+		return jsonResponse.getString("data.id") ;		
 	}
 	
 	public String getEmployeeName() {
@@ -45,6 +46,10 @@ public class post_CreateEmployee {
 	
 	public String getStatus() {
 		return jsonResponse.getString("status");
+	}
+	
+	public String getMessage() {
+		return jsonResponse.getString("message");
 	}
 
 }

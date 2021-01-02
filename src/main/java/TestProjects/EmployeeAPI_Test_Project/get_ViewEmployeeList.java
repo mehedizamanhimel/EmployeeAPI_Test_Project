@@ -30,8 +30,8 @@ public class get_ViewEmployeeList {
 	}
 	
 	//From this method, user will get the data for a particular employee from a list.
-	public String returnResponse(int i) {
-		return jsonresnponse.getString("data.get[" +i+"].data");
+	public String returnEmployeeID(int i) {
+		return jsonresnponse.getString("data[" +i+"].id");
 	}
 
 }

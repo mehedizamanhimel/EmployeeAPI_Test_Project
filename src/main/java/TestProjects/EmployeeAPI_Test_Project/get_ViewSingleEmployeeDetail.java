@@ -39,6 +39,10 @@ public class get_ViewSingleEmployeeDetail {
 	public String getData() {
 		return jsonresponse.getString("");
 	}
+	
+	public String getStatus() {
+		return jsonresponse.getString("status");
+	}
 
 	
 
