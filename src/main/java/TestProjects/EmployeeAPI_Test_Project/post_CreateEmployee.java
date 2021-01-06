@@ -37,11 +37,19 @@ public class post_CreateEmployee {
 	}
 	
 	public String getEmployeeID() {
-		return jsonResponse.getString("data.id") ;		
+		return jsonResponse.getString("data.id").toString() ;		
 	}
 	
 	public String getEmployeeName() {
 		return jsonResponse.getString("data.name");	
+	}
+	
+	public String getEmployeeSalary() {
+		return jsonResponse.getString("data.salary");
+	}
+	
+	public String getEmployeeAge() {
+		return jsonResponse.getString("data.age");
 	}
 	
 	public String getStatus() {

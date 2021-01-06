@@ -9,7 +9,7 @@ public class put_ChangeEmployeeInformation {
 
 	JsonObject json = new JsonObject();
 	JsonPath jsonresnponse;
-	public void updateExistingEmployee(String name, String salary, String age, String id) {
+	public void updateExistingEmployee(String name, String salary, String age, int id) {
 		
 		//this section to send the json body data with individual value.
 		json.addProperty("name", name);

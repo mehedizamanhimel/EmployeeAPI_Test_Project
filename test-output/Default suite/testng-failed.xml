@@ -5,7 +5,7 @@
     <classes>
       <class name="TestProjects.EmployeeAPI_Test_Project.TestCases">
         <methods>
-          <include name="createEmployee_Positive"/>
+          <include name="updateEmployee"/>
         </methods>
       </class> <!-- TestProjects.EmployeeAPI_Test_Project.TestCases -->
     </classes>

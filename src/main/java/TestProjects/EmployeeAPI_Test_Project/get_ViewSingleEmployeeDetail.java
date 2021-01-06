@@ -40,10 +40,18 @@ public class get_ViewSingleEmployeeDetail {
 		return jsonresponse.getString("");
 	}
 	
+	public String getEmployeeID() {
+		return jsonresponse.getString("data.id").toString();
+	}
+	
 	public String getStatus() {
 		return jsonresponse.getString("status");
 	}
 
+	public String getMessage() {
+		return jsonresponse.getString("message");
+	}
 	
+
 
 }

@@ -16,7 +16,8 @@ public class TestCases {
 	delete_DeleteSingleEmployeeInformation deleteEmployeeByID = new delete_DeleteSingleEmployeeInformation();
 	
 	String EMP_Name = RandomStringUtils.randomAlphabetic(9);
-	
+	String EMP_Salary = RandomStringUtils.randomNumeric(5);
+	String EMP_Age = RandomStringUtils.randomNumeric(2);
 	
 	@Test
 	public void getEmployee_Positive() {
@@ -27,31 +28,41 @@ public class TestCases {
 	
 	@Test
 	public void createEmployee_Positive() {
-		createEmployee.CreateNewEmployee(EMP_Name, "12344", "32");
+		createEmployee.CreateNewEmployee(EMP_Name, EMP_Salary, "32");
 		System.out.println("the employee name is: "+createEmployee.getEmployeeName());
+		
 		Assert.assertEquals(createEmployee.getStatus(), "success");
 		Assert.assertEquals(createEmployee.getMessage(), "Successfully! Record has been added.");
+		Assert.assertNotNull(createEmployee.getEmployeeID());
 	
 	}
 	
 	@Test
 	public void getEmployeeDetail() {
-		createEmployee.CreateNewEmployee(EMP_Name, "12344", "32");
+		createEmployee.CreateNewEmployee(EMP_Name, EMP_Salary, "35");
 		int emp_ID = Integer.parseInt(createEmployee.getEmployeeID());
 		viewEmployeeDetail.viewingEmployeeDetail(emp_ID);
 		
 		Assert.assertEquals(viewEmployeeDetail.getStatus()  , "success");
+		Assert.assertEquals(viewEmployeeDetail.getMessage()  , "Successfully! Record has been fetched.");
+		
 	}
 	
 	@Test
 	public void updateEmployee() {
-		employeeUpdate.updateExistingEmployee("", "", "", "");
+		createEmployee.CreateNewEmployee(EMP_Name, EMP_Salary, "35");
+		int emp_ID = Integer.parseInt(createEmployee.getEmployeeID());
+		viewEmployeeDetail.viewingEmployeeDetail(emp_ID);
+		employeeUpdate.updateExistingEmployee(EMP_Name, EMP_Salary, "36", emp_ID);
 		
 		Assert.assertEquals("" , "");
 	}
 	
 	@Test
 	public void deleteEmployee() {
+		createEmployee.CreateNewEmployee(EMP_Name, "12344", "32");
+		int emp_ID = Integer.parseInt(createEmployee.getEmployeeID());
+		viewEmployeeDetail.viewingEmployeeDetail(emp_ID);
 		deleteEmployeeByID.deleteExistingEmployee("");
 		
 		Assert.assertEquals("" , "");
