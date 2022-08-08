@@ -10,7 +10,7 @@ public class Tests_Serialized_Basic {
 
 
 
-    @Test
+    //@Test
     public void CreateEmployee(){
         String endpoint = "http://dummy.restapiexample.com/api/v1/create";
         createEmployee createEmployee = new createEmployee("testName","TestSalary","35");
@@ -49,7 +49,7 @@ public class Tests_Serialized_Basic {
                 .statusCode(200);
     }
 
-    @Test
+    //@Test
     public void DeleteEmployee(){
         String endpoint = "http://dummy.restapiexample.com/api/v1/employees";
 

@@ -3,8 +3,7 @@
 <suite name="SampleTestSuite">
   <test thread-count="1" name="SampleTest">
     <classes>
-      <class name="TestProjects.EmployeeAPI_Test_Project.TestCases"/>
-      <class name="TestProjects.EmployeeAPI_Test_Project.Basic_RestAssured"/>
+
       <class name="TestProjects.EmployeeAPI_Test_Project.Tests_Serialized_Basic"/>
     </classes>
   </test>
