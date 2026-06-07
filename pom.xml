@@ -23,6 +23,8 @@
   </properties>
 
   <dependencies>
+
+    <!-- TestNG: test scope is fine — test classes are all in src/test/java -->
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -30,17 +32,22 @@
       <scope>test</scope>
     </dependency>
 
+    <!-- REST Assured: compile scope so helper classes in src/main/java
+         (delete_DeleteSingleEmployeeInformation, get_ViewEmployeeList,
+          petStore_Pets/*, etc.) can reference RestAssured at compile time -->
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <version>${restassured.version}</version>
-      <scope>test</scope>
+      <scope>compile</scope>
     </dependency>
 
+    <!-- json-path: compile scope for the same reason -->
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>json-path</artifactId>
       <version>${restassured.version}</version>
+      <scope>compile</scope>
     </dependency>
 
     <dependency>
@@ -60,6 +67,7 @@
       <artifactId>httpclient</artifactId>
       <version>${httpclient.version}</version>
     </dependency>
+
   </dependencies>
 
   <build>
@@ -78,9 +86,7 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.5.2</version>
         <configuration>
-          <!-- Always write XML reports even when tests fail -->
           <testFailureIgnore>true</testFailureIgnore>
-          <!-- Explicit absolute path so CI always finds the suite file -->
           <suiteXmlFiles>
             <suiteXmlFile>${project.basedir}/testng.xml</suiteXmlFile>
           </suiteXmlFiles>
