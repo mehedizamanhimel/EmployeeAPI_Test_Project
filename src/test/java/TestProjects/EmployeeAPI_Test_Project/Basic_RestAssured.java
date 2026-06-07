@@ -3,8 +3,6 @@ package TestProjects.EmployeeAPI_Test_Project;
 import io.restassured.RestAssured;
 import org.testng.annotations.Test;
 
-import javax.xml.ws.Response;
-
 public class Basic_RestAssured {
 
     // Creating a simple get request and verifying the status code
